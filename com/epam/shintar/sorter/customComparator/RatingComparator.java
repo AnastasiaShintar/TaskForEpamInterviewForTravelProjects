@@ -1,4 +1,4 @@
-package com.epam.shintar.customComparator;
+package com.epam.shintar.sorter.customComparator;
 
 import com.epam.shintar.entity.Hotel;
 

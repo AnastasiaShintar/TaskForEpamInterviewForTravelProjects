@@ -1,7 +1,6 @@
 package com.epam.shintar.entity;
 
-import com.epam.shintar.enumPackage.BreakfastProvision;
-import com.epam.shintar.enumPackage.PlaceType;
+import com.epam.shintar.entity.enumPackage.PlaceType;
 
 public class Hotel {
 
@@ -9,14 +8,14 @@ public class Hotel {
     private PlaceType type;
     private double price;
     private double rating;
-    private BreakfastProvision breakfast;
+    private boolean isBreakfastIncluded;
 
-    public Hotel(String name, PlaceType type, double price, double rating, BreakfastProvision breakfast) {
+    public Hotel(String name, PlaceType type, double price, double rating, boolean isBreakfastIncluded) {
         this.name = name;
         this.type = type;
         this.price = price;
         this.rating = rating;
-        this.breakfast = breakfast;
+        this.isBreakfastIncluded = isBreakfastIncluded;
     }
 
     public String getName() {
@@ -51,16 +50,20 @@ public class Hotel {
         this.rating = rating;
     }
 
-    public BreakfastProvision getBreakfast() {
-        return breakfast;
+    public boolean getBreakfast() {
+        return isBreakfastIncluded;
     }
 
-    public void setBreakfast(BreakfastProvision breakfast) {
-        this.breakfast = breakfast;
+    public void setBreakfast(boolean breakfast) {
+        this.isBreakfastIncluded = breakfast;
     }
 
     @Override
     public String toString() {
-        return  "\"" + name + "\"" +", " + type + ", " + price +"$, " + rating + ", " + breakfast;
+        if(isBreakfastIncluded == true) {
+            return "\"" + name + "\"" + ", " + type + ", " + price + "$, " + rating + ", breakfast_included";
+        }else {
+            return "\"" + name + "\"" + ", " + type + ", " + price + "$, " + rating + ", breakfast_not_included";
+        }
     }
 }
